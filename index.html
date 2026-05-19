@@ -1,95 +1,69 @@
-
+THANKS MY ELDER BROTHERS SAUMYA AND AYUSH BHAIYA
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anuj's Dashboard</title>
+  <title>Nusrat Fateh Ali Khan — Shrine</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #0f0f1a;
+      background: #0a0005;
       color: #fff;
       min-height: 100vh;
-      padding: 20px 16px;
     }
-    h1 { text-align: center; font-size: 1.1rem; color: #aaa; margin-bottom: 24px; letter-spacing: 2px; text-transform: uppercase; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 600px; margin: 0 auto; }
-    @media(min-width: 600px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    .card { background: #1a1a2e; border-radius: 16px; padding: 24px; border: 1px solid #2a2a4a; }
-    .card h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #666; margin-bottom: 12px; }
-    #time { font-size: 2.8rem; font-weight: 700; color: #fff; letter-spacing: -2px; }
-    #date { color: #888; margin-top: 6px; font-size: 0.85rem; }
-    #weather-temp { font-size: 2.8rem; font-weight: 700; color: #7eb8f7; }
-    #weather-desc { color: #888; margin-top: 6px; text-transform: capitalize; }
-    #countdown-days { font-size: 2.8rem; font-weight: 700; color: #f7a76e; }
-    #countdown-label { color: #888; margin-top: 6px; font-size: 0.85rem; }
-    #quote-text { font-size: 1rem; line-height: 1.6; color: #ccc; font-style: italic; }
-    #quote-author { margin-top: 10px; color: #666; font-size: 0.85rem; }
-    .goals ul { list-style: none; margin-top: 8px; }
-    .goals ul li { padding: 10px 0; border-bottom: 1px solid #2a2a4a; color: #ccc; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-    .goals ul li::before { content: '→'; color: #7eb8f7; }
-    .goals ul li:last-child { border-bottom: none; }
+    .hero {
+      background: linear-gradient(135deg, #1a0010, #3d0030, #1a0010);
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.2rem; color: #ffd700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+    .hero p { color: #cc88aa; font-size: 1rem; letter-spacing: 2px; }
+    .tagline { font-size: 1.1rem; color: #ffaacc; font-style: italic; margin-top: 16px; padding: 0 20px; }
+    .section { max-width: 700px; margin: 0 auto; padding: 30px 16px; }
+    .section h2 { color: #ffd700; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid #3d0030; padding-bottom: 8px; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .playlist { display: flex; flex-direction: column; gap: 12px; }
+    .song { background: #1a0010; border: 1px solid #3d0030; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
+    .song-num { color: #ffd700; font-size: 1.1rem; min-width: 28px; }
+    .song-info h3 { font-size: 0.95rem; color: #fff; }
+    .song-info p { font-size: 0.8rem; color: #cc88aa; margin-top: 2px; }
+    .quote-box { background: #1a0010; border-left: 3px solid #ffd700; border-radius: 8px; padding: 20px; font-style: italic; color: #ffccdd; line-height: 1.7; font-size: 1rem; }
+    .about-text { color: #cc88aa; line-height: 1.8; font-size: 0.95rem; }
+    .about-text strong { color: #ffd700; }
   </style>
 </head>
 <body>
-  <h1>Anuj's Dashboard · Bangalore</h1>
-  <div class="grid">
-    <div class="card">
-      <h2>Time</h2>
-      <div id="time">--:--</div>
-      <div id="date">Loading...</div>
-    </div>
-    <div class="card">
-      <h2>Weather · Bangalore</h2>
-      <div id="weather-temp">--°C</div>
-      <div id="weather-desc">Fetching...</div>
-    </div>
-    <div class="card">
-      <h2>Countdown</h2>
-      <div id="countdown-days">--</div>
-      <div id="countdown-label">days until BCA begins (Aug 5)</div>
-    </div>
-    <div class="card">
-      <h2>Quote of the Day</h2>
-      <div id="quote-text">Loading...</div>
-      <div id="quote-author"></div>
-    </div>
-    <div class="card goals">
-      <h2>My Goals This Month</h2>
-      <ul>
-        <li>Ship 4 real projects before college</li>
-        <li>Learn HTML, CSS and JavaScript</li>
-        <li>Build something people actually use</li>
-      </ul>
+  <div class="hero">
+    <h1>Nusrat Fateh Ali Khan</h1>
+    <p>Shahenshah-e-Qawwali · 1948 – 1997</p>
+    <p class="tagline">"The voice that touched God."</p>
+  </div>
+  <div class="section">
+    <h2>Watch</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/8wFCQpJpYs4" allowfullscreen></iframe>
     </div>
   </div>
-  <script>
-    function updateTime() {
-      const now = new Date();
-      document.getElementById('time').textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('date').textContent = now.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    }
-    updateTime();
-    setInterval(updateTime, 1000);
-    const diff = Math.ceil((new Date('2026-08-05') - new Date()) / (1000 * 60 * 60 * 24));
-    document.getElementById('countdown-days').textContent = diff > 0 ? diff : 0;
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=12.97&longitude=77.59&current_weather=true')
-      .then(r => r.json())
-      .then(data => {
-        const descs = {0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Foggy',61:'Light rain',63:'Moderate rain',80:'Rain showers',95:'Thunderstorm'};
-        document.getElementById('weather-temp').textContent = data.current_weather.temperature + '°C';
-        document.getElementById('weather-desc').textContent = descs[data.current_weather.weathercode] || 'Cloudy';
-      });
-    const quotes = [
-      { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
-      { text: "Done is better than perfect.", author: "Sheryl Sandberg" },
-      { text: "Build something people want.", author: "Paul Graham" },
-    ];
-    const q = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById('quote-text').textContent = q.text;
-    document.getElementById('quote-author').textContent = '— ' + q.author;
-  </script>
+  <div class="section">
+    <h2>Essential Playlist</h2>
+    <div class="playlist">
+      <div class="song"><span class="song-num">01</span><div class="song-info"><h3>Mere Rashke Qamar</h3><p>Qawwali · Timeless</p></div></div>
+      <div class="song"><span class="song-num">02</span><div class="song-info"><h3>Afreen Afreen</h3><p>With Rahat Fateh Ali Khan · 1996</p></div></div>
+      <div class="song"><span class="song-num">03</span><div class="song-info"><h3>Allah Hoo</h3><p>Sufi Qawwali · Pure devotion</p></div></div>
+      <div class="song"><span class="song-num">04</span><div class="song-info"><h3>Tum Ek Gorakh Dhanda Ho</h3><p>Philosophy in music</p></div></div>
+      <div class="song"><span class="song-num">05</span><div class="song-info"><h3>Mustt Mustt</h3><p>Fusion · Real World Records · 1990</p></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <h2>A Moment</h2>
+    <div class="quote-box">"When Nusrat sang, the boundaries between the human and divine dissolved. His voice was not just music — it was a direct line to something beyond."</div>
+  </div>
+  <div class="section">
+    <h2>About</h2>
+    <p class="about-text"><strong>Nusrat Fateh Ali Khan</strong> was a Pakistani musician and the greatest exponent of Qawwali — the devotional music of the Sufi Muslims. Born in 1948 in Faisalabad, he came from a family of musicians stretching back over 600 years.<br><br>He introduced Qawwali to the world stage, collaborating with Peter Gabriel and recording for Real World Records. His voice had a range and power that left audiences speechless.<br><br>He passed in 1997, but his music is eternal.</p>
+  </div>
 </body>
 </html>
