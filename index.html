@@ -6,63 +6,180 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nusrat Fateh Ali Khan — Shrine</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0a0005;
-      color: #fff;
-      min-height: 100vh;
-    }
+    body { font-family: 'Inter', sans-serif; background: #050008; color: #fff; }
+
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, #1a0010, #3d0030, #1a0010);
-      padding: 60px 20px 40px;
-      text-align: center;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, #4a0030 0%, #1a0015 40%, #050008 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 60px 20px; position: relative; overflow: hidden;
     }
-    .hero h1 { font-size: 2.2rem; color: #ffd700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
-    .hero p { color: #cc88aa; font-size: 1rem; letter-spacing: 2px; }
-    .tagline { font-size: 1.1rem; color: #ffaacc; font-style: italic; margin-top: 16px; padding: 0 20px; }
-    .section { max-width: 700px; margin: 0 auto; padding: 30px 16px; }
-    .section h2 { color: #ffd700; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid #3d0030; padding-bottom: 8px; }
-    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
-    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    .playlist { display: flex; flex-direction: column; gap: 12px; }
-    .song { background: #1a0010; border: 1px solid #3d0030; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
-    .song-num { color: #ffd700; font-size: 1.1rem; min-width: 28px; }
-    .song-info h3 { font-size: 0.95rem; color: #fff; }
-    .song-info p { font-size: 0.8rem; color: #cc88aa; margin-top: 2px; }
-    .quote-box { background: #1a0010; border-left: 3px solid #ffd700; border-radius: 8px; padding: 20px; font-style: italic; color: #ffccdd; line-height: 1.7; font-size: 1rem; }
-    .about-text { color: #cc88aa; line-height: 1.8; font-size: 0.95rem; }
+    .hero::before {
+      content: '☪'; font-size: 300px; position: absolute; opacity: 0.04;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .hero-tag {
+      font-size: 0.7rem; letter-spacing: 4px; color: #ffd700;
+      text-transform: uppercase; margin-bottom: 24px;
+      border: 1px solid #ffd70033; padding: 6px 16px; border-radius: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.1; color: #fff; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #ffd700; }
+    .hero-sub { color: #cc88aa; font-size: 1rem; letter-spacing: 3px; margin-bottom: 20px; }
+    .hero-quote {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 1.2rem; color: #ffaacc; max-width: 500px; line-height: 1.6;
+    }
+    .scroll-hint { position: absolute; bottom: 30px; color: #666; font-size: 0.8rem; letter-spacing: 2px; }
+
+    /* SECTIONS */
+    .section { max-width: 750px; margin: 0 auto; padding: 60px 20px; }
+    .section-label {
+      font-size: 0.65rem; letter-spacing: 4px; color: #ffd700;
+      text-transform: uppercase; margin-bottom: 30px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: #ffd70033; }
+
+    /* WATCH BUTTON */
+    .watch-btn {
+      display: flex; align-items: center; gap: 20px;
+      background: linear-gradient(135deg, #1a0010, #2d0020);
+      border: 1px solid #ffd70044; border-radius: 16px;
+      padding: 24px 28px; text-decoration: none; color: #fff;
+      transition: all 0.3s; margin-bottom: 16px;
+    }
+    .watch-btn:hover { border-color: #ffd700; background: linear-gradient(135deg, #2d0020, #4a0030); }
+    .watch-icon {
+      width: 56px; height: 56px; background: #ffd700; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .watch-text h3 { font-size: 1rem; margin-bottom: 4px; }
+    .watch-text p { font-size: 0.8rem; color: #cc88aa; }
+
+    /* STATS */
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 60px;
+    }
+    .stat {
+      background: #0d0010; border: 1px solid #2a0025; border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+    .stat-num { font-size: 1.8rem; font-weight: 700; color: #ffd700; font-family: 'Playfair Display', serif; }
+    .stat-label { font-size: 0.7rem; color: #888; margin-top: 4px; letter-spacing: 1px; }
+
+    /* PLAYLIST */
+    .playlist { display: flex; flex-direction: column; gap: 10px; }
+    .song {
+      background: #0d0010; border: 1px solid #2a0025; border-radius: 12px;
+      padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .song:hover { border-color: #ffd70066; background: #1a0015; transform: translateX(4px); }
+    .song-num { color: #ffd700; font-size: 0.8rem; min-width: 24px; font-family: 'Playfair Display', serif; }
+    .song-info { flex: 1; }
+    .song-info h3 { font-size: 0.95rem; margin-bottom: 3px; }
+    .song-info p { font-size: 0.75rem; color: #888; }
+    .song-arrow { color: #ffd70066; font-size: 0.8rem; }
+
+    /* QUOTE */
+    .big-quote {
+      text-align: center; padding: 40px 20px;
+      border-top: 1px solid #2a0025; border-bottom: 1px solid #2a0025;
+      margin: 20px 0;
+    }
+    .big-quote p {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.5rem); color: #ffccdd; line-height: 1.7; margin-bottom: 16px;
+    }
+    .big-quote cite { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
+
+    /* ABOUT */
+    .about-text { color: #aaa; line-height: 1.9; font-size: 0.95rem; }
     .about-text strong { color: #ffd700; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 40px 20px;
+      border-top: 1px solid #1a0015; color: #444; font-size: 0.75rem; letter-spacing: 2px;
+    }
+    footer span { color: #ffd700; }
   </style>
 </head>
 <body>
+
   <div class="hero">
-    <h1>Nusrat Fateh Ali Khan</h1>
-    <p>Shahenshah-e-Qawwali · 1948 – 1997</p>
-    <p class="tagline">"The voice that touched God."</p>
+    <div class="hero-tag">A Musical Shrine</div>
+    <h1>Nusrat<br><span>Fateh Ali Khan</span></h1>
+    <p class="hero-sub">Shahenshah-e-Qawwali · 1948 – 1997</p>
+    <p class="hero-quote">"The voice that touched God and made mortals weep."</p>
+    <p class="scroll-hint">↓ scroll ↓</p>
   </div>
+
   <div class="section">
-    <h2>Watch</h2>
-    <a href="https://youtu.be/2F7G9bOIwlk" target="_blank" style="display:block; background:#1a0010; border:1px solid #ffd700; border-radius:12px; padding:30px; text-align:center; color:#ffd700; font-size:1.1rem; text-decoration:none;">   ▶ Watch Afreen Afreen on YouTube </a>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">600+</div><div class="stat-label">Years of Family Music</div></div>
+      <div class="stat"><div class="stat-num">125+</div><div class="stat-label">Albums Released</div></div>
+      <div class="stat"><div class="stat-num">49</div><div class="stat-label">Years of Life</div></div>
     </div>
+
+    <div class="section-label">Watch</div>
+    <a href="https://youtu.be/2F7G9bOIwlk" target="_blank" class="watch-btn">
+      <div class="watch-icon">▶</div>
+      <div class="watch-text">
+        <h3>Afreen Afreen</h3>
+        <p>Watch on YouTube · Classic Qawwali</p>
+      </div>
+    </a>
+    <a href="https://youtu.be/bNWAEsDBF4Q" target="_blank" class="watch-btn">
+      <div class="watch-icon">▶</div>
+      <div class="watch-text">
+        <h3>Allah Hoo</h3>
+        <p>Watch on YouTube · Pure Devotion</p>
+      </div>
+    </a>
   </div>
+
   <div class="section">
-    <h2>Essential Playlist</h2>
+    <div class="section-label">Essential Playlist</div>
     <div class="playlist">
-      <div class="song"><span class="song-num">01</span><div class="song-info"><h3>Mere Rashke Qamar</h3><p>Qawwali · Timeless</p></div></div>
-      <div class="song"><span class="song-num">02</span><div class="song-info"><h3>Afreen Afreen</h3><p>With Rahat Fateh Ali Khan · 1996</p></div></div>
-      <div class="song"><span class="song-num">03</span><div class="song-info"><h3>Allah Hoo</h3><p>Sufi Qawwali · Pure devotion</p></div></div>
-      <div class="song"><span class="song-num">04</span><div class="song-info"><h3>Tum Ek Gorakh Dhanda Ho</h3><p>Philosophy in music</p></div></div>
-      <div class="song"><span class="song-num">05</span><div class="song-info"><h3>Mustt Mustt</h3><p>Fusion · Real World Records · 1990</p></div></div>
+      <div class="song"><span class="song-num">01</span><div class="song-info"><h3>Mere Rashke Qamar</h3><p>Qawwali · Timeless</p></div><span class="song-arrow">→</span></div>
+      <div class="song"><span class="song-num">02</span><div class="song-info"><h3>Afreen Afreen</h3><p>With Rahat Fateh Ali Khan · 1996</p></div><span class="song-arrow">→</span></div>
+      <div class="song"><span class="song-num">03</span><div class="song-info"><h3>Allah Hoo</h3><p>Sufi Qawwali · Pure devotion</p></div><span class="song-arrow">→</span></div>
+      <div class="song"><span class="song-num">04</span><div class="song-info"><h3>Tum Ek Gorakh Dhanda Ho</h3><p>Philosophy in music</p></div><span class="song-arrow">→</span></div>
+      <div class="song"><span class="song-num">05</span><div class="song-info"><h3>Mustt Mustt</h3><p>Fusion · Real World Records · 1990</p></div><span class="song-arrow">→</span></div>
     </div>
   </div>
+
   <div class="section">
-    <h2>A Moment</h2>
-    <div class="quote-box">"When Nusrat sang, the boundaries between the human and divine dissolved. His voice was not just music — it was a direct line to something beyond."</div>
+    <div class="big-quote">
+      <p>"When Nusrat sang, the boundaries between the human and divine dissolved. His voice was not just music — it was a direct line to something beyond."</p>
+      <cite>— On the legend of Nusrat</cite>
+    </div>
   </div>
+
   <div class="section">
-    <h2>About</h2>
-    <p class="about-text"><strong>Nusrat Fateh Ali Khan</strong> was a Pakistani musician and the greatest exponent of Qawwali — the devotional music of the Sufi Muslims. Born in 1948 in Faisalabad, he came from a family of musicians stretching back over 600 years.<br><br>He introduced Qawwali to the world stage, collaborating with Peter Gabriel and recording for Real World Records. His voice had a range and power that left audiences speechless.<br><br>He passed in 1997, but his music is eternal.</p>
+    <div class="section-label">About</div>
+    <p class="about-text">
+      <strong>Nusrat Fateh Ali Khan</strong> was a Pakistani musician and the greatest exponent of Qawwali — the devotional music of the Sufi Muslims. Born in 1948 in Faisalabad, he came from a family of musicians stretching back over 600 years.<br><br>
+      He introduced Qawwali to the world stage, collaborating with Peter Gabriel and recording for Real World Records. His voice had a range and power that left audiences speechless — from tiny village shrines to Carnegie Hall.<br><br>
+      He passed in 1997, but his music is eternal.
+    </p>
   </div>
+
+  <footer>
+    Made with love · <span>Nusrat Lives Forever</span> · A tribute by Anuj
+  </footer>
+
 </body>
 </html>
+```
+
